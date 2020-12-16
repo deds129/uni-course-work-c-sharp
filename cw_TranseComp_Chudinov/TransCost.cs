@@ -8,6 +8,6 @@ namespace cw_TranseComp_Chudinov
 {
     class TransCost
     {
-
+        
     }
 }

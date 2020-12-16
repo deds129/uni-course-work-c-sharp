@@ -86,7 +86,7 @@ namespace cw_TranseComp_Chudinov
         }
 
         //возможно нужно будет переделать
-        public void AddNewDriver(Driver driver)
+        public void AddNewMember(Driver driver)
         {
             //добвить проверку на свопадение
             drivers.Add(driver);
@@ -100,7 +100,6 @@ namespace cw_TranseComp_Chudinov
                 {
                     foreach (Driver driver in drivers)
                     {
-
                         sw.WriteLine(driver.ToFile());
                     }
                 }

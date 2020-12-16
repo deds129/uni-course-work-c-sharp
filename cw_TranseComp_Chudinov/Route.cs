@@ -12,13 +12,31 @@ namespace cw_TranseComp_Chudinov
         private int range;
         private int daysOnWay;
         private int payment;
+        static int ID = 0;
+        int id;
 
         public Route(string routeName, int range, int daysOnWay, int payment)
         {
-            this.routeName = routeName;
-            this.range = range;
-            this.daysOnWay = daysOnWay;
-            this.payment = payment;
+            try
+            {
+                //проверить правильность значений
+                this.routeName = routeName;
+                this.range = range;
+                this.daysOnWay = daysOnWay;
+                this.payment = payment;
+                ID++;
+                id = ID;
+            }
+            catch
+            {
+                Console.WriteLine("Ошибка входных данных!");
+            }
+           
+        }
+
+        public int Id
+        {
+            get { return id; }
         }
 
         public override bool Equals(object obj)

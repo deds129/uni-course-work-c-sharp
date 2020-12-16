@@ -13,5 +13,6 @@ namespace cw_TranseComp_Chudinov
         private int[] DispDate = new int[3];
         private int[] ArrivalDate = new int[3];
         private int award;
+       
     }
 }
