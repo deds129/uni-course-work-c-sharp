@@ -32,10 +32,12 @@ namespace cw_TranseComp_Chudinov
                 file.Close();
                 counter = drivers.Count;
             }
-            catch
+            
+            catch (Exception e)
             {
-                Console.WriteLine("Ошибка! Проблема с файлом!");
+                Console.WriteLine(e);
             }
+            
         }
 
         //чтение с консоли
@@ -86,10 +88,38 @@ namespace cw_TranseComp_Chudinov
         }
 
         //возможно нужно будет переделать
-        public void AddNewMember(Driver driver)
+        public void AddNewMemberAndSave()
         {
-            //добвить проверку на свопадение
-            drivers.Add(driver);
+            try
+            {
+                string newSurname;
+                string newName;
+                string newSecondname;
+                int newExperience;
+                Console.WriteLine($"Введите данные водителя: ");
+                Console.Write("Фамилия: ");
+                newSurname = Convert.ToString(Console.ReadLine());
+                Console.Write("Имя: ");
+                newName = Convert.ToString(Console.ReadLine());
+                Console.Write("Отчество: ");
+                newSecondname = Convert.ToString(Console.ReadLine());
+                Console.Write("Стаж: ");
+                newExperience = Convert.ToInt32(Console.ReadLine());
+                if (newExperience < 0)
+                    throw new Exception();
+                Console.WriteLine();
+
+                drivers.Add(new Driver(
+                    newSurname,
+                    newName,
+                    newSecondname,
+                    newExperience));
+                writeListInFile("drivers.txt");
+            }
+            catch
+            {
+                Console.WriteLine("Ошибка при добавлении пользователя! Возможно вы ввели некорректные данные!");
+            }
         }
 
         public void writeListInFile(string fileName)

@@ -28,7 +28,6 @@ namespace cw_TranseComp_Chudinov
             this.surname = surname;
             this.name = name;
             this.secondname = secondname;
-            //как обрабатывать ошибку??
             if (experience < 0)
                 this.experience = 0;
             else
@@ -45,12 +44,12 @@ namespace cw_TranseComp_Chudinov
         public override string ToString()
         {
             return "ФИО водителя: " + surname + " " +
-                " " + name + " " + secondname + ", стаж: " + experience;
+                  name + " " + secondname + ", стаж: " + experience;
         }
 
         public string ToFile()
         {
-            return surname + " " +
+            return surname +
                 " " + name + " " + secondname + " " + experience;
         }
 

@@ -112,9 +112,47 @@ namespace cw_TranseComp_Chudinov
         }
 
         //возможно нужно будет переделать
-        public void AddNewDriver(Route route)
+        public void AddNewMemberAndSave()
         {
-            routes.Add(route);
+            try
+            {
+                string newRouteName;
+                int newRange;
+                int newDaysOnWay;
+                int newPayment;
+
+                Console.WriteLine($"Введите данные Маршрута");
+                Console.Write("Название маршрута: ");
+                newRouteName = Convert.ToString(Console.ReadLine());
+
+
+                Console.Write("Дальность: ");
+                newRange = Convert.ToInt32(Console.ReadLine());
+                if (newRange < 0)
+                    throw new Exception();
+
+                Console.Write("Кол-во дней в пути: ");
+                newDaysOnWay = Convert.ToInt32(Console.ReadLine());
+                if (newDaysOnWay < 0)
+                    throw new Exception();
+
+                Console.Write("Оплата: ");
+                newPayment = Convert.ToInt32(Console.ReadLine());
+                if (newPayment < 0)
+                    throw new Exception();
+                Console.WriteLine();
+
+                routes.Add(new Route(
+                     newRouteName,
+                     newRange,
+                     newDaysOnWay,
+                     newPayment));
+                writeListInFile("routes.txt");
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
     }
 }
