@@ -50,6 +50,7 @@
     <Compile Include="Route.cs" />
     <Compile Include="RouteList.cs" />
     <Compile Include="TransCost.cs" />
+    <Compile Include="WoksList.cs" />
     <Compile Include="Work.cs" />
   </ItemGroup>
   <ItemGroup>

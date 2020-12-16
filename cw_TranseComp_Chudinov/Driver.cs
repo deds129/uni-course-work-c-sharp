@@ -12,6 +12,16 @@ namespace cw_TranseComp_Chudinov
         private string name;
         private string secondname;
         private int experience;
+        static int ID = 0;
+        int id;
+
+        public string FullName
+        {
+            get
+            {
+                return surname+ " " + name + " " + secondname;
+            }
+        }
 
         public Driver(string surname, string name, string secondname, int experience)
         {
@@ -23,17 +33,13 @@ namespace cw_TranseComp_Chudinov
                 this.experience = 0;
             else
                 this.experience = experience;
-           
+            ID++;
+            id = ID;
         }
 
-        public override bool Equals(object obj)
+        public int Id
         {
-            return base.Equals(obj);
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
+            get { return id; }
         }
 
         public override string ToString()
@@ -46,6 +52,16 @@ namespace cw_TranseComp_Chudinov
         {
             return surname + " " +
                 " " + name + " " + secondname + " " + experience;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

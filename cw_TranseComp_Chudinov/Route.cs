@@ -15,6 +15,16 @@ namespace cw_TranseComp_Chudinov
         static int ID = 0;
         int id;
 
+        public string RouteName
+        {
+            get
+            {
+                return routeName;
+            }
+        }
+
+        
+
         public Route(string routeName, int range, int daysOnWay, int payment)
         {
             try
