@@ -22,7 +22,7 @@ namespace cw_TranseComp_Chudinov
                 while ((line = file.ReadLine()) != null)
                 {
                     string[] strSplit = line.Split(' ');
-                   // workList.Add(,,Convert.ToDateTime(strSplit[2]), Convert.ToDateTime(strSplit[2])
+                    workList.Add(,,Convert.ToDateTime(strSplit[2]), Convert.ToDateTime(strSplit[2])
                 }
             }
             catch

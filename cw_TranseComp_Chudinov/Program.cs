@@ -10,10 +10,8 @@ namespace cw_TranseComp_Chudinov
     {
         static void Main(string[] args)
         {
-           DateTime a = Convert.ToDateTime("12.11.12");
-            Console.WriteLine(a);
-            Console.ReadKey();
-            /*
+           
+            
             int x;
             string s;
             bool flag = true;
@@ -79,13 +77,9 @@ namespace cw_TranseComp_Chudinov
                     }
 
                 }
-                /*
-                DateTime date = new DateTime(2000,10,10);
-                Console.WriteLine(date.ToString("dd.MM.yyyy"));
-                Console.ReadKey();
-                
+   
             }
-            */
+            
 
         }
         

@@ -61,7 +61,7 @@ namespace cw_TranseComp_Chudinov
 
         public override string ToString()
         {
-            return "Название маршрута: " + routeName + ", дальность = " + range +
+            return  "Название маршрута: " + routeName + ", дальность = " + range +
                 ", время маршрута = " + daysOnWay + ", оплата = " + payment;
         }
 
