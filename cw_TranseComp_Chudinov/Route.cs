@@ -34,8 +34,7 @@ namespace cw_TranseComp_Chudinov
                 this.range = range;
                 this.daysOnWay = daysOnWay;
                 this.payment = payment;
-                ID++;
-                id = ID;
+                id = ID++;
             }
             catch
             {
@@ -61,7 +60,7 @@ namespace cw_TranseComp_Chudinov
 
         public override string ToString()
         {
-            return  "Название маршрута: " + routeName + ", дальность = " + range +
+            return "id: " + id + " Название маршрута: " + routeName + ", дальность = " + range +
                 ", время маршрута = " + daysOnWay + ", оплата = " + payment;
         }
 

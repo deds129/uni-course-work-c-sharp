@@ -12,39 +12,39 @@ namespace cw_TranseComp_Chudinov
         int counter = 0;
         string line;
 
-        static List<WorkList> workList = new List<WorkList>();
+        static List<Work> workList = new List<Work>();
+        DriverList driverList = new DriverList("drivers.txt");
+        RouteList routeList = new RouteList("routes.txt");
 
-        public WorkList(string fileName)
+        public WorkList(int size)
         {
-            try
-            {
-                StreamReader file = new StreamReader(fileName, System.Text.Encoding.Default);
-                while ((line = file.ReadLine()) != null)
-                {
-                    string[] strSplit = line.Split(' ');
-                    workList.Add(,,Convert.ToDateTime(strSplit[2]), Convert.ToDateTime(strSplit[2])
-                }
-            }
-            catch
+            for (int i = 0; i < size; i++)
             {
 
+                Console.Write("Введите индекс водителя из списка: ");
+                int dIndex = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Введите индекс маршрута из списка: ");
+                int rIndex = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Введите дату отправки в формате dd.MM.yy");
+                string aDate = Console.ReadLine();
+
+                Console.WriteLine("Введите дату прибытия в формате dd.MM.yy");
+                string dDate = Console.ReadLine();
+                Console.WriteLine();
+                workList.Add(new Work(
+                    routeList.getByIndex(rIndex),
+                    driverList.getByIndex(dIndex),
+                    Convert.ToDateTime(aDate),
+                    Convert.ToDateTime(dDate)));  
             }
+
         }
-
-        /*
-        public WoksList(int listSize)
+        public void Show()
         {
-            try
-            {
-                //найти в list 
-            }
-            catch
-            {
-
-            }
+            foreach (Work work in workList )
+                Console.WriteLine(work.ToString());
         }
-        */
-
-
     }
 }

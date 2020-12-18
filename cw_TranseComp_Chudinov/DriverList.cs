@@ -122,6 +122,11 @@ namespace cw_TranseComp_Chudinov
             }
         }
 
+        public Driver getByIndex(int i)
+        {
+            return drivers[i];
+        }
+
         public void writeListInFile(string fileName)
         {
             try
@@ -139,6 +144,8 @@ namespace cw_TranseComp_Chudinov
             {
                 Console.WriteLine("Oшибка записи в файл!");
             }
+
+           
         }
     }
 }

@@ -19,8 +19,18 @@ namespace cw_TranseComp_Chudinov
 
             DriverList driverList = new DriverList("drivers.txt");
             RouteList routeList = new RouteList("routes.txt");
-            WorkList workList = new WorkList("works.txt");
-            
+            WorkList workList;
+
+            Console.WriteLine("Списки:");
+            driverList.ShowList();
+            Console.WriteLine();
+            routeList.ShowList();
+
+
+            Console.WriteLine();
+            Console.WriteLine("Пожалуйста Введите кол-во доставок(работ) для назнеачения работ: ");
+            int workCount = Convert.ToInt32(Console.ReadLine());
+            workList = new WorkList(workCount);
             while (flag)
             {
                 Console.WriteLine("Для дальшейшей работы выберите пункт:" +
@@ -33,8 +43,8 @@ namespace cw_TranseComp_Chudinov
                     "\n5 - Сохранить список маршрутов в новый файл" +
                     "\n6 - Добавить новый маршрут в список (с сохранением в файл)" +
                   //  "\n - список работ"
-                    "\n7 - " +
-                    "\n8 - " +
+                    "\n7 - Назначить работу" +
+                    "\n8 - Вывести список назначенных работ" +
                     "\n9 - " +
                     "\nЛюбое другое число - выход\n"
                     );
@@ -71,6 +81,14 @@ namespace cw_TranseComp_Chudinov
                         case 6:
                             routeList.AddNewMemberAndSave();
                             break;
+                        case 7:
+                            
+                            break;
+                        case 8:
+                            Console.WriteLine("-----Cписок назначенных работ-----");
+                            workList.Show();
+                            Console.WriteLine();
+                            break;
                         default:
                             flag = false;
                             break;
@@ -79,6 +97,8 @@ namespace cw_TranseComp_Chudinov
                 }
    
             }
+            
+            Console.ReadKey();
             
 
         }

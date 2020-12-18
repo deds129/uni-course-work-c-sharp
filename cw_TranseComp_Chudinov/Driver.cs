@@ -32,8 +32,7 @@ namespace cw_TranseComp_Chudinov
                 this.experience = 0;
             else
                 this.experience = experience;
-            ID++;
-            id = ID;
+            id = ID++;
         }
 
         public int Id
@@ -43,7 +42,7 @@ namespace cw_TranseComp_Chudinov
 
         public override string ToString()
         {
-            return "ФИО водителя: " + surname + " " +
+            return "id: " + id +" ФИО водителя: " + surname + " " +
                   name + " " + secondname + ", стаж: " + experience;
         }
 

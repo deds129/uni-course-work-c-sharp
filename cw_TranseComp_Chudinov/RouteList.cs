@@ -110,6 +110,10 @@ namespace cw_TranseComp_Chudinov
                 Console.WriteLine("Oшибка записи в файл!");
             }
         }
+        public Route getByIndex(int i)
+        {
+            return routes[i];
+        }
 
         //возможно нужно будет переделать
         public void AddNewMemberAndSave()
