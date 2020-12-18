@@ -15,22 +15,23 @@ namespace cw_TranseComp_Chudinov
             int x;
             string s;
             bool flag = true;
-            Console.WriteLine("========Добро пожаловать в систему управлением Грузовыми Перевозками========");
+            Console.WriteLine("\t============================================================================");
+            Console.WriteLine("\t========Добро пожаловать в систему управлением Грузовыми Перевозками========");
+            Console.WriteLine("\t============================================================================");
 
             DriverList driverList = new DriverList("drivers.txt");
             RouteList routeList = new RouteList("routes.txt");
-            WorkList workList;
+             WorkList workList = new WorkList(0);
 
             Console.WriteLine("Списки:");
-            driverList.ShowList();
-            Console.WriteLine();
-            routeList.ShowList();
+           // driverList.ShowList();
+           // Console.WriteLine();
+          //  routeList.ShowList();
 
 
-            Console.WriteLine();
-            Console.WriteLine("Пожалуйста Введите кол-во доставок(работ) для назнеачения работ: ");
-            int workCount = Convert.ToInt32(Console.ReadLine());
-            workList = new WorkList(workCount);
+           // Console.WriteLine();
+           // Console.WriteLine("Пожалуйста Введите кол-во доставок(работ) для назнеачения работ: ");
+           //int workCount = Convert.ToInt32(Console.ReadLine());
             while (flag)
             {
                 Console.WriteLine("Для дальшейшей работы выберите пункт:" +
@@ -45,7 +46,9 @@ namespace cw_TranseComp_Chudinov
                   //  "\n - список работ"
                     "\n7 - Назначить работу" +
                     "\n8 - Вывести список назначенных работ" +
-                    "\n9 - " +
+                    "\n9 - Создать отчетный файл со списком работ" + //супер идея - надежная ***** как швейцарские часы
+                    "\n10 - Сохранить информацию о работах в файл(с возможностью загружения из файла) - пока не работет"+
+                    "\n11 - Загрузиться с файла(заполнить лист значениями из файла)"+
                     "\nЛюбое другое число - выход\n"
                     );
                 string choose_menu = Console.ReadLine();
@@ -82,13 +85,24 @@ namespace cw_TranseComp_Chudinov
                             routeList.AddNewMemberAndSave();
                             break;
                         case 7:
-                            
+                            workList.Add();
                             break;
                         case 8:
                             Console.WriteLine("-----Cписок назначенных работ-----");
                             workList.Show();
                             Console.WriteLine();
                             break;
+                        case 9:
+                            //Сохранить сведения о работах в отчетный файл
+                            workList.SaveToFile();
+                            break;
+                        case 10:
+                            workList.SaveToFile();
+                            break;
+                        case 11:
+                            string fileName = "workList.txt"; //расширить можно загрузка из разных файлов
+                            workList.LoadFromFile(fileName);
+                            break;       
                         default:
                             flag = false;
                             break;
@@ -97,7 +111,6 @@ namespace cw_TranseComp_Chudinov
                 }
    
             }
-            
             Console.ReadKey();
             
 

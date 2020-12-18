@@ -12,7 +12,7 @@ namespace cw_TranseComp_Chudinov
         int counter = 0;
         string line;
         //вроде надо
-        static List<Driver> drivers = new List<Driver>();
+        List<Driver> drivers = new List<Driver>();
       
         //чтение с файла
         public DriverList(string fileName)
@@ -137,12 +137,13 @@ namespace cw_TranseComp_Chudinov
                     {
                         sw.WriteLine(driver.ToFile());
                     }
+                    sw.Close();
+                    Console.WriteLine("Данные записаны в " + fileName);
                 }
-                Console.WriteLine("Данные записаны в " + fileName);
             }
-            catch
+            catch (Exception e)
             {
-                Console.WriteLine("Oшибка записи в файл!");
+                Console.WriteLine(e);
             }
 
            

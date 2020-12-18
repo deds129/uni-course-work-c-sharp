@@ -24,9 +24,9 @@ namespace cw_TranseComp_Chudinov
 
         public override string ToString()
         {
-            return   "Маршрут: " + route.RouteName + " ФИО Водителя: " +
-                driver.FullName + " Дата отправки : " + dispDate.ToString("dd.MM.yyyy") +
-                 " Дата возвращения : " + arrivalDate.ToString("dd.MM.yyyy");
+            return   "Маршрут: " + route.RouteName + "\tФИО Водителя: " +
+                driver.FullName + "\tДата отправки : " + dispDate.ToString("dd.MM.yyyy") +
+                 "\tДата возвращения : " + arrivalDate.ToString("dd.MM.yyyy");
           
         }
 

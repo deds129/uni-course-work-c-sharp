@@ -11,7 +11,7 @@ namespace cw_TranseComp_Chudinov
     {
         int counter = 0;
         string line;
-        static List<Route> routes = new List<Route>();
+        List<Route> routes = new List<Route>();
 
         public RouteList(string fileName)
         {
@@ -31,9 +31,9 @@ namespace cw_TranseComp_Chudinov
                 file.Close();
                 counter = routes.Count;
             }
-            catch
+            catch(Exception e)
             {
-                Console.WriteLine("Ошибка! Проблема с файлом!");
+                Console.WriteLine(e);
             }
         }
 
@@ -102,6 +102,7 @@ namespace cw_TranseComp_Chudinov
                     {
                         sw.WriteLine(route.ToFile());
                     }
+                    sw.Close();
                 }
                 Console.WriteLine("Данные записаны в " +  fileName);
             }
