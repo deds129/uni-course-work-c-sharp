@@ -23,7 +23,16 @@ namespace cw_TranseComp_Chudinov
             }
         }
 
-        
+        public int Payment
+        {
+            get
+            {
+                return payment;
+            }
+        }
+
+
+
 
         public Route(string routeName, int range, int daysOnWay, int payment)
         {

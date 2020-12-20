@@ -8,6 +8,8 @@ namespace cw_TranseComp_Chudinov
 {
     class TransCost
     {
-        
+        DriverList driverList = new DriverList("drivers.txt");
+        RouteList routeList = new RouteList("routes.txt");
+
     }
 }

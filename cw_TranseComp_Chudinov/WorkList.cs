@@ -16,8 +16,11 @@ namespace cw_TranseComp_Chudinov
         DriverList driverList = new DriverList("drivers.txt"); //!
         RouteList routeList = new RouteList("routes.txt"); //!
 
+
+        //для расширения, пока не используется
         public WorkList(int size)
         {
+            
             for (int i = 0; i < size; i++)
             {
 
@@ -32,15 +35,22 @@ namespace cw_TranseComp_Chudinov
 
                 Console.WriteLine("Введите дату прибытия в формате dd.MM.yy");
                 string dDate = Console.ReadLine();
+
+                Console.WriteLine("Введите размер премии: ");
+                int award = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine();
                 workList.Add(new Work(
-                    routeList.getByIndex(rIndex),
-                    driverList.getByIndex(dIndex),
-                    Convert.ToDateTime(aDate),
-                    Convert.ToDateTime(dDate)));
+                     routeList.getByIndex(rIndex),
+                     driverList.getByIndex(dIndex),
+                     Convert.ToDateTime(aDate),
+                     Convert.ToDateTime(dDate),
+                     Convert.ToInt32(award)));
             }
 
         }
+
+        
+
         public void Add()
         {
             try
@@ -56,12 +66,16 @@ namespace cw_TranseComp_Chudinov
 
                 Console.WriteLine("Введите дату прибытия в формате dd.MM.yy");
                 string dDate = Console.ReadLine();
+
+                Console.WriteLine("Введите размер премии: ");
+                int award = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine();
                 workList.Add(new Work(
                      routeList.getByIndex(rIndex),
                      driverList.getByIndex(dIndex),
                      Convert.ToDateTime(aDate),
-                     Convert.ToDateTime(dDate)));
+                     Convert.ToDateTime(dDate),
+                     Convert.ToInt32(award)));
             }
             catch (Exception e)
             {
@@ -80,12 +94,18 @@ namespace cw_TranseComp_Chudinov
             {
                 try
                 {
+                    double sum = 0;
+                    sw.WriteLine("\t\t\t\t\t\t\t=================================================================");
+                    sw.WriteLine("\t\t\t\t\t\t\t============ ОТЧЕТ ПО СТОИМОСТИ ВЫПОЛНЕНИЯ ЗАКАЗОВ ==============");
+                    sw.WriteLine("\t\t\t\t\t\t\t=================================================================");
                     foreach (Work work in workList)
                     {
-                        //to File - чтобы заново считать
-                        //to String (неправильно конечно) - чтобы читабельно было, в отчет пишу так
-                        sw.WriteLine(work.ToString());
+                        sum += work.getCashForWork();
+                        sw.WriteLine(work.ToString() + " Расходы на заказ: " +work.getCashForWork());  
                     }
+                    sw.WriteLine();
+                    sw.WriteLine("Общие расходы составят: " + sum);
+                    sw.Close();
                     Console.WriteLine("Отчет сохранен в " + fileName + "\n");
                 }
                 catch (Exception e)
@@ -95,6 +115,8 @@ namespace cw_TranseComp_Chudinov
 
             }
         }
+
+       
         
         public void LoadFromFile (string fileName)
         {
@@ -108,7 +130,9 @@ namespace cw_TranseComp_Chudinov
                         routeList.getByIndex(Convert.ToInt32(strSplit[0])),
                         driverList.getByIndex(Convert.ToInt32(strSplit[1])),
                         Convert.ToDateTime(Convert.ToDateTime(strSplit[2])),
-                        Convert.ToDateTime(Convert.ToDateTime(strSplit[3]))));
+                        Convert.ToDateTime(Convert.ToDateTime(strSplit[3])),
+                        Convert.ToInt32(Convert.ToInt32(strSplit[4]))));
+                        
                 }
                 file.Close();
                 counter = workList.Count;
@@ -141,6 +165,7 @@ namespace cw_TranseComp_Chudinov
 
             }
         }
+ 
 
     }
 }

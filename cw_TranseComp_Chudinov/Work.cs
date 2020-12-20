@@ -14,26 +14,35 @@ namespace cw_TranseComp_Chudinov
         private DateTime arrivalDate;
         private int award;
 
-        public Work(Route route, Driver driver, DateTime dispDate, DateTime arrivalDate)
+        public Work(Route route, Driver driver, DateTime dispDate, DateTime arrivalDate, int award)
         {
             this.route = route;
             this.driver = driver;
             this.dispDate = dispDate;
             this.arrivalDate = arrivalDate;
+            this.award = award;
+        }
+
+        public int Award
+        {
+            get
+            {
+                return award;
+            }
         }
 
         public override string ToString()
         {
-            return   "Маршрут: " + route.RouteName + "\tФИО Водителя: " +
-                driver.FullName + "\tДата отправки : " + dispDate.ToString("dd.MM.yyyy") +
-                 "\tДата возвращения : " + arrivalDate.ToString("dd.MM.yyyy");
+            return   "Маршрут: " + route.RouteName + " ФИО Водителя: " +
+                driver.FullName + " Дата отправки : " + dispDate.ToString("dd.MM.yyyy") +
+                 " Дата возвращения : " + arrivalDate.ToString("dd.MM.yyyy") + " премия: " + award;
           
         }
 
         //переделать
         public string ToFile()
         {
-            return route.Id + " " + driver.Id + " " + arrivalDate.ToString("dd.MM.yyyy") + " " + dispDate.ToString("dd.MM.yyyy");    
+            return route.Id + " " + driver.Id + " " + arrivalDate.ToString("dd.MM.yyyy") + " " + dispDate.ToString("dd.MM.yyyy") + " " + award;    
         }
         
        
@@ -46,6 +55,12 @@ namespace cw_TranseComp_Chudinov
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public double getCashForWork()
+        {
+            return (award + (driver.Experience * route.Payment / 100.0) + route.Payment);
+            
         }
     }
 }

@@ -41,6 +41,7 @@ namespace cw_TranseComp_Chudinov
         }
 
         //чтение с консоли
+        //для расширения, пока не используется
         public DriverList(int listSize)
         {
             try
@@ -70,6 +71,7 @@ namespace cw_TranseComp_Chudinov
                         newSecondname,
                         newExperience));
                 }
+                writeListInFile("drivers.txt");
                 counter = drivers.Count;
             }
             catch
@@ -119,6 +121,19 @@ namespace cw_TranseComp_Chudinov
             catch
             {
                 Console.WriteLine("Ошибка при добавлении пользователя! Возможно вы ввели некорректные данные!");
+            }
+        }
+
+        public void RemoveMember(int i)
+        {
+            try
+            {
+                drivers.Remove(drivers[i]);
+                writeListInFile("drivers.txt");
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
             }
         }
 

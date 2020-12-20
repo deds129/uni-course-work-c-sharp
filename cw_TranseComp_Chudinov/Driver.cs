@@ -15,6 +15,7 @@ namespace cw_TranseComp_Chudinov
         static int ID = 0;
         int id;
 
+        
         public string FullName
         {
             get
@@ -22,6 +23,23 @@ namespace cw_TranseComp_Chudinov
                 return surname+ " " + name + " " + secondname;
             }
         }
+
+        public int Experience
+        {
+            get
+            {
+                return experience;
+            }
+        }
+
+
+
+
+
+
+
+
+
 
         public Driver(string surname, string name, string secondname, int experience)
         {

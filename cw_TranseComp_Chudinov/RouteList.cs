@@ -159,5 +159,18 @@ namespace cw_TranseComp_Chudinov
                 Console.WriteLine(e);
             }
         }
+
+        public void RemoveMember(int i)
+        {
+            try
+            {
+                routes.Remove(routes[i]);
+                writeListInFile("routes.txt");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
     }
 }
