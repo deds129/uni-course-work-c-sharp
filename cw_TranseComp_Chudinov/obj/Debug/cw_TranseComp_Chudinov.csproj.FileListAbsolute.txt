@@ -1,0 +1,14 @@
+C:\Users\deds\Desktop\uni-course-work-c-sharp\cw_TranseComp_Chudinov\bin\Debug\cw_TranseComp_Chudinov.exe.config
+C:\Users\deds\Desktop\uni-course-work-c-sharp\cw_TranseComp_Chudinov\bin\Debug\cw_TranseComp_Chudinov.exe
+C:\Users\deds\Desktop\uni-course-work-c-sharp\cw_TranseComp_Chudinov\bin\Debug\cw_TranseComp_Chudinov.pdb
+C:\Users\deds\Desktop\uni-course-work-c-sharp\cw_TranseComp_Chudinov\obj\Debug\cw_TranseComp_Chudinov.csprojAssemblyReference.cache
+C:\Users\deds\Desktop\uni-course-work-c-sharp\cw_TranseComp_Chudinov\obj\Debug\cw_TranseComp_Chudinov.csproj.CoreCompileInputs.cache
+C:\Users\deds\Desktop\uni-course-work-c-sharp\cw_TranseComp_Chudinov\obj\Debug\cw_TranseComp_Chudinov.exe
+C:\Users\deds\Desktop\uni-course-work-c-sharp\cw_TranseComp_Chudinov\obj\Debug\cw_TranseComp_Chudinov.pdb
+C:\Users\deds\source\repos\cw_TranseComp_Chudinov\cw_TranseComp_Chudinov\obj\Debug\cw_TranseComp_Chudinov.csprojAssemblyReference.cache
+C:\Users\deds\source\repos\cw_TranseComp_Chudinov\cw_TranseComp_Chudinov\obj\Debug\cw_TranseComp_Chudinov.csproj.CoreCompileInputs.cache
+C:\Users\deds\source\repos\cw_TranseComp_Chudinov\cw_TranseComp_Chudinov\obj\Debug\cw_TranseComp_Chudinov.exe
+C:\Users\deds\source\repos\cw_TranseComp_Chudinov\cw_TranseComp_Chudinov\obj\Debug\cw_TranseComp_Chudinov.pdb
+C:\Users\deds\source\repos\cw_TranseComp_Chudinov\cw_TranseComp_Chudinov\bin\Debug\cw_TranseComp_Chudinov.exe.config
+C:\Users\deds\source\repos\cw_TranseComp_Chudinov\cw_TranseComp_Chudinov\bin\Debug\cw_TranseComp_Chudinov.exe
+C:\Users\deds\source\repos\cw_TranseComp_Chudinov\cw_TranseComp_Chudinov\bin\Debug\cw_TranseComp_Chudinov.pdb
