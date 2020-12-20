@@ -56,7 +56,6 @@ namespace cw_TranseComp_Chudinov
           
         }
 
-        //переделать
         public string ToFile()
         {
             return route.Id + " " + driver.Id + " " + arrivalDate.ToString("dd.MM.yyyy") + " " + dispDate.ToString("dd.MM.yyyy") + " " + award;    

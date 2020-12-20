@@ -11,10 +11,8 @@ namespace cw_TranseComp_Chudinov
     {
         int counter = 0;
         string line;
-        //вроде надо
         List<Driver> drivers = new List<Driver>();
       
-        //чтение с файла
         public DriverList(string fileName)
         {
             try
@@ -40,8 +38,6 @@ namespace cw_TranseComp_Chudinov
             
         }
 
-        //чтение с консоли
-        //для расширения, пока не используется
         public DriverList(int listSize)
         {
             try
@@ -89,7 +85,6 @@ namespace cw_TranseComp_Chudinov
             }
         }
 
-        //возможно нужно будет переделать
         public void AddNewMemberAndSave()
         {
             try

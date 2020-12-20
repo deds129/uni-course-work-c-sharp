@@ -16,7 +16,6 @@ namespace cw_TranseComp_Chudinov
         DriverList driverList = new DriverList("drivers.txt"); //!
         RouteList routeList = new RouteList("routes.txt"); //!
 
-
         //для расширения, пока не используется
         public WorkList(int size)
         {
@@ -46,10 +45,7 @@ namespace cw_TranseComp_Chudinov
                      Convert.ToDateTime(dDate),
                      Convert.ToInt32(award)));
             }
-
         }
-
-        
 
         public void Add()
         {

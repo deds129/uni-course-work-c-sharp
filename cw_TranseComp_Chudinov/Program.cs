@@ -17,9 +17,7 @@ namespace cw_TranseComp_Chudinov
             Console.WriteLine("\t============================================================================");
             Console.WriteLine("\t========Добро пожаловать в систему управлением Грузовыми Перевозками========");
             Console.WriteLine("\t============================================================================");
-
-            // DriverList driverList = new DriverList("drivers.txt");
-            // RouteList routeList = new RouteList("routes.txt");
+;
             DriverList driverList = new DriverList("drivers.txt");
             RouteList routeList = new RouteList("routes.txt");
             WorkList workList = new WorkList(0);
@@ -33,21 +31,21 @@ namespace cw_TranseComp_Chudinov
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("Для дальшейшей работы выберите пункт:\n" +
                     "\n ------------ВОДИТЕЛИ------------" +
-                    "\n1 - Вывести список водителей в косоль" +
+                    "\n1 - Вывести список водителей в консоль" +
                     "\n2 - Cоздать новый список водителей c консоли с сохранением в файл" +
                     "\n3 - Сохранить список водителей в новый файл" +
                     "\n4 - Добавить нового водителя в список (с сохранением в файл)" +
-                    "\n5 - Удалить водителя из списока (с сохранением в файл)" +
+                    "\n5 - Удалить водителя из списка (с сохранением в файл)" +
                     "\n6 - Загрузить список водителей с хранилища");
                 Console.ResetColor();
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("\n ------------МАРШРУТЫ------------" +
-                    "\n7 - Вывести список маршрутов в косоль" +
+                    "\n7 - Вывести список маршрутов в консоль" +
                     "\n8 - Cоздать новый список маршрутов c консоли с сохранением в файл" +
                     "\n9 - Сохранить список маршрутов в новый файл" +
                     "\n10 - Добавить новый маршрут в список (с сохранением в файл)" +
-                    "\n11 - Удалить маршрут из списока (с сохранением в файл)" +
+                    "\n11 - Удалить маршрут из списка (с сохранением в файл)" +
                     "\n12 - Загрузить список маршрутов с хранилища");
                 Console.ResetColor();
 
@@ -155,7 +153,7 @@ namespace cw_TranseComp_Chudinov
                        
                             //??
                         case 15:
-                            string fileName = "works.txt"; //расширить можно загрузка из разных файлов
+                            string fileName = "works.txt"; 
                             workList.LoadFromFile(fileName);
                             break;
                         
@@ -171,23 +169,16 @@ namespace cw_TranseComp_Chudinov
 
                         case 18:
                             //Сохранить сведения о работах в отчетный файл
-                            workList.WriteReportInFile("/Отчеты/Отчет_по_выплатам.txt");
+                            workList.WriteReportInFile("Отчет_по_выплатам.txt");
                             break;
                        
                         default:
                             flag = false;
                             break;
                     }
-
                 }
-   
             }
             Console.ReadKey();
-            
-
-        }
-        
-    }
-
-    
+        }   
+    }    
 }

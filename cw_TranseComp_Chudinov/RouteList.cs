@@ -22,7 +22,6 @@ namespace cw_TranseComp_Chudinov
                 {
                     string[] strSplit = line.Split(' ');
                     routes.Add(new Route(
-                        //проверить на корректность призодящих значений
                         strSplit[0].ToString(), //routeName
                         Convert.ToInt32(strSplit[1]), //range
                         Convert.ToInt32(strSplit[2]), //daysOnWay
