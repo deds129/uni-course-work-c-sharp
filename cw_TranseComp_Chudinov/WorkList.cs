@@ -84,6 +84,7 @@ namespace cw_TranseComp_Chudinov
         }
         public void Show()
         {
+            int i = 0;
             foreach (Work work in workList)
                 Console.WriteLine(work.ToString());
         }
@@ -142,10 +143,22 @@ namespace cw_TranseComp_Chudinov
             }
 
         }
+        public void RemoveMember(int i)
+        {
+            try
+            {
+                workList.Remove(workList[i]);
+               SaveToFile();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
 
         public void SaveToFile()
         {
-            string fileName = "workList.txt";
+            string fileName = "works.txt";
             using (StreamWriter sw = new StreamWriter(fileName, false, System.Text.Encoding.Default)) //можно изменить место записи
             {
                 try
@@ -156,7 +169,7 @@ namespace cw_TranseComp_Chudinov
                         sw.WriteLine(work.ToFile());
                     }
                     sw.Close();
-                    Console.WriteLine("Отчет сохранен в " + fileName + "\n");
+                    Console.WriteLine("Данные сохранены в " + fileName + "\n");
                 }
                 catch (Exception e)
                 {

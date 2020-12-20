@@ -14,13 +14,30 @@ namespace cw_TranseComp_Chudinov
         private DateTime arrivalDate;
         private int award;
 
+        static int ID = 0;
+        int id;
+
         public Work(Route route, Driver driver, DateTime dispDate, DateTime arrivalDate, int award)
         {
             this.route = route;
             this.driver = driver;
-            this.dispDate = dispDate;
-            this.arrivalDate = arrivalDate;
-            this.award = award;
+            if(dispDate.CompareTo(arrivalDate) <= 0)
+            {
+                this.dispDate = dispDate;
+                this.arrivalDate = arrivalDate;
+            }
+            else
+                throw new Exception("Неверно заданы даты!");
+            if (award >= 0)
+                this.award = award;
+            else
+                throw new Exception();
+            id = ID++;
+        }
+
+        public int Id
+        {
+            get { return id; }
         }
 
         public int Award
@@ -33,7 +50,7 @@ namespace cw_TranseComp_Chudinov
 
         public override string ToString()
         {
-            return   "Маршрут: " + route.RouteName + " ФИО Водителя: " +
+            return  "id: "  + Id + " Маршрут: " + route.RouteName + " ФИО Водителя: " +
                 driver.FullName + " Дата отправки : " + dispDate.ToString("dd.MM.yyyy") +
                  " Дата возвращения : " + arrivalDate.ToString("dd.MM.yyyy") + " премия: " + award;
           

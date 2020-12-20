@@ -40,9 +40,13 @@ namespace cw_TranseComp_Chudinov
             {
                 //проверить правильность значений
                 this.routeName = routeName;
-                this.range = range;
-                this.daysOnWay = daysOnWay;
-                this.payment = payment;
+                if (range >= 0 && daysOnWay >= 0 && payment >= 0)
+                {
+                    this.range = range;
+                    this.daysOnWay = daysOnWay;
+                    this.payment = payment;
+                }
+                
                 id = ID++;
             }
             catch

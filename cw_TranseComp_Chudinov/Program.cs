@@ -20,8 +20,8 @@ namespace cw_TranseComp_Chudinov
 
             // DriverList driverList = new DriverList("drivers.txt");
             // RouteList routeList = new RouteList("routes.txt");
-            DriverList driverList = new DriverList(0);
-            RouteList routeList = new RouteList(0);
+            DriverList driverList = new DriverList("drivers.txt");
+            RouteList routeList = new RouteList("routes.txt");
             WorkList workList = new WorkList(0);
           
 
@@ -30,6 +30,7 @@ namespace cw_TranseComp_Chudinov
            
             while (flag)
             {
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("Для дальшейшей работы выберите пункт:\n" +
                     "\n ------------ВОДИТЕЛИ------------" +
                     "\n1 - Вывести список водителей в косоль" +
@@ -37,23 +38,37 @@ namespace cw_TranseComp_Chudinov
                     "\n3 - Сохранить список водителей в новый файл" +
                     "\n4 - Добавить нового водителя в список (с сохранением в файл)" +
                     "\n5 - Удалить водителя из списока (с сохранением в файл)" +
-                    "\n6 - Загрузить список водителей с хранилища" +
+                    "\n6 - Загрузить список водителей с хранилища");
+                Console.ResetColor();
 
-                    "\n\n ------------МАРШРУТЫ------------" +
-                    "\n4 - Вывести список маршрутов " +
-                    "\n5 - Сохранить список маршрутов в новый файл" +
-                    "\n6 - Добавить новый маршрут в список (с сохранением в файл)" +
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("\n ------------МАРШРУТЫ------------" +
+                    "\n7 - Вывести список маршрутов в косоль" +
+                    "\n8 - Cоздать новый список маршрутов c консоли с сохранением в файл" +
+                    "\n9 - Сохранить список маршрутов в новый файл" +
+                    "\n10 - Добавить новый маршрут в список (с сохранением в файл)" +
+                    "\n11 - Удалить маршрут из списока (с сохранением в файл)" +
+                    "\n12 - Загрузить список маршрутов с хранилища");
+                Console.ResetColor();
 
-                    "\n\n ------------ЗАКАЗЫ------------" +
-                    "\n7 - Добавить новый заказ" +
-                    "\n8 - Вывести список назначенных заказов" +
-                    "\n10 - Сохранить информацию о работах в файл(с возможностью загружения из файла) - пока не работет" +
-                    "\n11 - Загрузиться с файла(заполнить лист значениями из файла)" +
-
-                    "\n\n ------------ОТЧЕТЫ ПО ВЫПЛАТАМ------------" +
-                    "\n9 - Создать отчет с расчетом расходов на выплату зарплат" +
-                    "\n12 - " +
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine(
+                    "\n ------------ЗАКАЗЫ------------" +
+                    "\n13 - Вывести список назначенных заказов" +
+                    "\n14 - Сохранить информацию о работах в файл(с возможностью загружения из файла)" + //
+                    "\n15 - Загрузить список работ с файла" +
+                    "\n16 - Добавить новый заказ" +
+                    "\n17 - Удалить заказ из списка");
+                Console.ResetColor();
+                Console.WriteLine(
+                "\n\n ------------ОТЧЕТЫ ПО ВЫПЛАТАМ------------" +
+                    "\n18 - Создать отчет с расчетом расходов на выплату зарплат" +
                 "\nЛюбое другое число - выход\n");
+
+                Console.ForegroundColor = ConsoleColor.Green; // устанавливаем цвет
+                Console.Write("Введите пункт: ");
+                Console.ResetColor();
+
                 string choose_menu = Console.ReadLine();
                 if (!Int32.TryParse(choose_menu, out x))
                 {
@@ -95,45 +110,70 @@ namespace cw_TranseComp_Chudinov
                             driverList = new DriverList("drivers.txt");
                             break;
 
-                            // МАРШРУТЫ
-
-                        // "\n4 - Вывести список маршрутов " +
-                        case 4:
+                        // МАРШРУТЫ
+                        case 7:
                             routeList.ShowList();
                             Console.WriteLine("\n");
                             break;
-                        //"\n5 - Сохранить список маршрутов в новый файл" +
-                        case 5:
-                            Console.WriteLine("Введите название файла и путь: ");
-                             s = Console.ReadLine();
+
+                        case 8:
+                            Console.WriteLine("Введите размерность списка: ");
+                            a = Convert.ToInt32(Console.ReadLine());
+                            routeList = new RouteList(a);
                             break;
-                        //"\n6 - Добавить новый маршрут в список (с сохранением в файл)" +
-                        case 6:
+
+                        case 9:
+                            Console.WriteLine("Введите название файла и путь: ");
+                            s = Console.ReadLine();
+                            routeList.writeListInFile(s);
+                            break;
+
+                        case 10:
                             routeList.AddNewMemberAndSave();
                             break;
-                        //"\n\n ------------ЗАКАЗЫ------------" +
-                        case 7:
-                            workList.Add();
+                        case 11:
+                            Console.WriteLine("Введите id маршрута: ");
+                            a = Convert.ToInt32(Console.ReadLine());
+                            routeList.RemoveMember(a);
                             break;
-                        case 8:
+                        case 12:
+                            routeList = new RouteList("routes.txt");
+                            break;
+
+
+
+                        //"\n\n ------------ЗАКАЗЫ------------" +
+                        case 13:
                             Console.WriteLine("-----Cписок назначенных работ-----");
                             workList.Show();
                             Console.WriteLine();
                             break;
-                        case 9:
-                            //Сохранить сведения о работах в отчетный файл
-                            workList.WriteReportInFile("Отчет_по_выплатам.txt");
-                            break;
-                        case 10:
+
+                        case 14:
                             workList.SaveToFile();
                             break;
-                        case 11:
-                            string fileName = "workList.txt"; //расширить можно загрузка из разных файлов
+                       
+                            //??
+                        case 15:
+                            string fileName = "works.txt"; //расширить можно загрузка из разных файлов
                             workList.LoadFromFile(fileName);
                             break;
-                        case 12:
-
+                        
+                        case 16:
+                            workList.Add();
                             break;
+                        case 17:
+                            Console.WriteLine("Введите номер работы в списке: ");
+                            a = Convert.ToInt32(Console.ReadLine());
+                            workList.RemoveMember(a);
+                            break;
+                        //  "\n\n ------------ОТЧЕТЫ ПО ВЫПЛАТАМ------------" +
+
+                        case 18:
+                            //Сохранить сведения о работах в отчетный файл
+                            workList.WriteReportInFile("/Отчеты/Отчет_по_выплатам.txt");
+                            break;
+                       
                         default:
                             flag = false;
                             break;
