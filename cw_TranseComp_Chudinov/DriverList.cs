@@ -156,7 +156,6 @@ namespace cw_TranseComp_Chudinov
                 Console.WriteLine(e);
             }
 
-           
         }
     }
 }

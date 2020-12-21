@@ -34,13 +34,6 @@ namespace cw_TranseComp_Chudinov
 
 
 
-
-
-
-
-
-
-
         public Driver(string surname, string name, string secondname, int experience)
         {
             this.surname = surname;

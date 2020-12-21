@@ -14,10 +14,41 @@ namespace cw_TranseComp_Chudinov
             string s;
             int a;
             bool flag = true;
+
+            string choose_menu;
+
+            Console.Write("Для доступа к программе введите пароль: ");
+            string password = "111";
+            string input = "";
+            while (true)
+            {
+
+                var key = Console.ReadKey(true);//не отображаем клавишу - true
+
+                if (key.Key == ConsoleKey.Enter) break; //enter - выходим из цикла
+
+                Console.Write("*");//рисуем звезду вместо нее
+                input += key.KeyChar; //копим в пароль символы
+
+            }
+            if (!(input.Equals(password)))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nПароль неверный! Для выхода нажмите любую клавишу...");
+                Console.ResetColor();
+                Console.ReadKey();
+                return;
+            }
+
+            Console.WriteLine("\n" + password);
+
+
+
             Console.WriteLine("\t============================================================================");
             Console.WriteLine("\t========Добро пожаловать в систему управлением Грузовыми Перевозками========");
             Console.WriteLine("\t============================================================================");
-;
+            Console.WriteLine("");
+
             DriverList driverList = new DriverList("drivers.txt");
             RouteList routeList = new RouteList("routes.txt");
             WorkList workList = new WorkList(0);
@@ -67,7 +98,7 @@ namespace cw_TranseComp_Chudinov
                 Console.Write("Введите пункт: ");
                 Console.ResetColor();
 
-                string choose_menu = Console.ReadLine();
+                choose_menu = Console.ReadLine();
                 if (!Int32.TryParse(choose_menu, out x))
                 {
                     Console.WriteLine("Некорректный ввод! Повторите ввод\n");
